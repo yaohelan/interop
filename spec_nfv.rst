@@ -31,7 +31,8 @@ OpenStack supports NFV. To fulfill the goal, a NFV Management & Orchestration
 (MANO) is needed to manage the lifecycle of VNF and orchestrate the services.
 
 Here is a reference about ESTI NFV architecture
-http://www.etsi.org/images/easyblog_images/NFV/NFV-blog-OPNV-initiative.png
+
+.. image:: http://www.etsi.org/images/easyblog_images/NFV/NFV-blog-OPNV-initiative.png
 
 Virtual IP Multimedia Subsystem(vIMS) network is a core component of deploying
 VoLTE services in an LTE network and it a good candidate for showing the 
@@ -46,10 +47,15 @@ Proposed change
 ===============
 
 The workload of running vIMS on OpenStack with MANO
+
 1. Deploy 1 VM by OpenStack and install the MANO
+
 2. Bind the MANO with OpenStack
+
 3. Deploy the vIMS by MANO
+
 4. Configure vIMS and set specific calling number for each OpenStack vendor
+
 5. Show the audiences by dialing a specific number
 
 
