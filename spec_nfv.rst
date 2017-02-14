@@ -30,13 +30,14 @@ Running a VNF on a NFVI is a typical way to demonstrates the ability that
 OpenStack supports NFV. To fulfill the goal, a NFV Management & Orchestration
 (MANO) is needed to manage the lifecycle of VNF and orchestrate the services.
 
+Virtual IP Multimedia Subsystem(vIMS) network is a core component of deploying
+VoLTE services in an LTE network and it a good candidate for showing the 
+OpenStack deployment ability.
+
 Here is a reference about ESTI NFV architecture
 
 .. image:: http://www.etsi.org/images/easyblog_images/NFV/NFV-blog-OPNV-initiative.png
 
-Virtual IP Multimedia Subsystem(vIMS) network is a core component of deploying
-VoLTE services in an LTE network and it a good candidate for showing the 
-OpenStack deployment ability.
 
 Problem description
 ===================
