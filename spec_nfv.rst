@@ -54,10 +54,11 @@ The primary changes that need to be done are as follows:
   * script to deploy a SIP client
 
 * Test scripts to verify the workload
+
   * script to confirm OpenStack is working
 
   * script to confirm OPEN-O is working
-  
+
   * script to confirm vIMS is working
 
 
@@ -89,32 +90,44 @@ Work Items
   1. Deploy 1 VM by OpenStack and install the OPEN-O
 
   2. Bind the OPEN-O with OpenStack 
+
     * configure OpenStack as Virtual Infrastructure Manager(VIM) by calling
     OPEN-O API, which is mainly about providing OpenStack authentication 
     information to OPEN-O
 
   3. Deploy the vIMS by OPEN-O
+
     * define the Network Service Descriptor(NSD) and VNF Descriptor(VNFD) to
     give the overall definition for the topology
+
     * deploy the topology by OPEN-O 
+
       * Several VMs are deployed to play different roles. A Clearwater vIMS is
       consist of 7 VMs includes basic function nodes and a DNS.
 
   4. Configure vIMS and get specific calling number for each OpenStack vendor
+
     * call vIMS API to generate identification for each OpenStack vendor
 
   5. Configure the SIP client with the calling identification
+
     * call the SIP client API to configure
 
   6. Show the audiences by dialing a specific number
 
 2. Test scripts to verify the deployment
+
   * script to confirm OpenStack is working
+
     * basic scenario to create VM along with network as API verification for 
     the OpenStack
+
   * script to confirm OPEN-O is working
+
     * basic scenario to call OPEN-O services to confirm core services are working
+
   * script to confirm vIMS is working
+  
     * basic scenario to call vIMS services to confirm main functions are working
 
 Dependencies
