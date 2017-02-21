@@ -9,12 +9,13 @@ http://creativecommons.org/licenses/by/3.0/legalcode
  Run vIMS on OpenStack with OPEN-O
 ==================================
 
-Making a voice call is a typical scenario in telecommunication industry. To
-enable such services, Telco needs to leverage a NFV Management & Orchestration
-(MANO) to deploy corresponsding network services along with underlying 
-infrastructure. In this blueprint, the scenario is implemented by OPEN-O that
-acts as MANO to deploy Virtual IP Multimedia Subsystem(vIMS) on an OpenStack
-infrastructure.
+Making a voice call is a typical scenario in telecommunication industry. 
+To make the voice calling as a NFV workload running atop OpenStack 
+Infrastructure, such workload consists of VNF and MANO functionality, 
+Telco needs to leverage a MANO to deploy corresponsding network services 
+along with underlying infrastructure.
+In this blueprint, we deploy the voice calling workload (vIMS and Open-O,
+which serves as VNF and MANO respectively) on an OpenStack infrstructure.
 
 Network Function Virtualization(NFV) is a network architecture concept that
 uses virtualization technology in Telco industry. Virtual Network Function
@@ -45,21 +46,17 @@ The primary changes that need to be done are as follows:
 
 * Deployment scripts to deploy the workload
 
-  * script to deploy OpenStack
+  * Shell script to deploy OPEN-O
 
-  * script to deploy OPEN-O
+  * Python script to call OPEN-O to deploy vIMS
 
-  * script to deploy vIMS
-
-  * script to deploy a SIP client
+  * Shell script to deploy a SIP client
 
 * Test scripts to verify the workload
 
-  * script to confirm OpenStack is working
+  * Python script to confirm OPEN-O is working
 
-  * script to confirm OPEN-O is working
-
-  * script to confirm vIMS is working
+  * Ruby script to confirm vIMS is working
 
 
 Implementation
@@ -83,11 +80,25 @@ Target Milestone for completion:
 Work Items
 ----------
 
+Prerequisites
+
+1. OPEN-O VM
+  * at least 4 CPUs, 64G RAM, 100G Disk
+  * Ubuntu 16.04
+2. vIMS VM * 7 nodes
+  * 1 CPU, 2G RAM, 2G RAM, 20G Disk
+  * Ubuntu 12.04
+3. OpenStack Keystone V2 is verified and Keystone V3 is not verified
+
+
+Details
+
 1. Deployment scripts development to fulfill the workload
 
   The workload of running vIMS on OpenStack with OPEN-O
 
   1. Deploy 1 VM by OpenStack and install the OPEN-O
+    * the VM needs 
 
   2. Bind the OPEN-O with OpenStack 
 
@@ -127,7 +138,7 @@ Work Items
     * basic scenario to call OPEN-O services to confirm core services are working
 
   * script to confirm vIMS is working
-  
+
     * basic scenario to call vIMS services to confirm main functions are working
 
 Dependencies
