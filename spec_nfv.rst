@@ -44,13 +44,20 @@ Proposed change
 The primary changes that need to be done are as follows:
 
 * Deployment scripts to deploy the workload
+
   * script to deploy OpenStack
+
   * script to deploy OPEN-O
+
   * script to deploy vIMS
+
   * script to deploy a SIP client
+
 * Test scripts to verify the workload
   * script to confirm OpenStack is working
+
   * script to confirm OPEN-O is working
+  
   * script to confirm vIMS is working
 
 
