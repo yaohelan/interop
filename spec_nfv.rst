@@ -4,33 +4,32 @@ This work is licensed under a Creative Commons Attribution 3.0 Unported License.
 http://creativecommons.org/licenses/by/3.0/legalcode
 
 ..
-  This template should be in ReSTructured text. The filename in the git
-  repository should match the launchpad URL, for example a URL of
-  https://blueprints.launchpad.net/interop-workloads-specs/+spec/awesome-thing should be named
-  awesome-thing.rst .  Please do not delete any of the sections in this
-  template.  If you have nothing to say for a whole section, just write: None
-  For help with syntax, see http://sphinx-doc.org/rest.html
-  To test out your formatting, see http://www.tele3.cz/jbar/rest/rest.html
 
 ==================================
  Run vIMS on OpenStack with OPEN-O
 ==================================
 
+Making a voice call is a typical scenario in telecommunication industry. To
+enable such services, Telco needs to leverage a NFV Management & Orchestration
+(MANO) to deploy corresponsding network services along with underlying 
+infrastructure. In this blueprint, the scenario is implemented by OPEN-O that
+acts as MANO to deploy Virtual IP Multimedia Subsystem(vIMS) on an OpenStack
+infrastructure.
+
 Network Function Virtualization(NFV) is a network architecture concept that
 uses virtualization technology in Telco industry. Virtual Network Function
 (VNF) is a software implementation of network functions that can be deployed
 on a Network Virtualization Infrastructure(NFVI). OpenStack is a type of
-NFVI. 
+NFVI.
 
-Running a VNF on a NFVI is a typical way to demonstrates the ability that
-OpenStack supports NFV. To fulfill the goal, a NFV Management & Orchestration
-(MANO) is needed to manage the lifecycle of VNF and orchestrate the services.
+Running a VNF on a NFVI is a normal way to demonstrates the ability that
+OpenStack supports NFV. To fulfill the goal, a MANO is needed to manage the 
+lifecycle of VNF and orchestrate the services. 
 OPEN-O is an open source MANO project.
 
-Virtual IP Multimedia Subsystem(vIMS) network is a core component of deploying
-VoLTE services in an LTE network and it a good candidate for showing the 
-OpenStack deployment ability. Clearwater is an open source implementation of
-vIMS.
+vIMS network is a core component of deploying VoLTE services in an LTE network 
+and it a good candidate for showing the OpenStack deployment ability. 
+Clearwater is an open source implementation of vIMS.
 
 
 Problem description
@@ -45,7 +44,14 @@ Proposed change
 The primary changes that need to be done are as follows:
 
 * Deployment scripts to deploy the workload
+  * script to deploy OpenStack
+  * script to deploy OPEN-O
+  * script to deploy vIMS
+  * script to deploy a SIP client
 * Test scripts to verify the workload
+  * script to confirm OpenStack is working
+  * script to confirm OPEN-O is working
+  * script to confirm vIMS is working
 
 
 Implementation
@@ -54,10 +60,10 @@ Implementation
 Assignee(s)
 -----------
 
-Primary assignee: 
+Primary assignee:
   Helan Yao <yaohelan@huawei.com>
 
-Other contributors: 
+Other contributors:
   Zhipeng Huang <huangzhipeng@huawei.com>
 
 Milestones
@@ -75,16 +81,34 @@ Work Items
 
   1. Deploy 1 VM by OpenStack and install the OPEN-O
 
-  2. Bind the OPEN-O with OpenStack
+  2. Bind the OPEN-O with OpenStack 
+    * configure OpenStack as Virtual Infrastructure Manager(VIM) by calling
+    OPEN-O API, which is mainly about providing OpenStack authentication 
+    information to OPEN-O
 
   3. Deploy the vIMS by OPEN-O
+    * define the Network Service Descriptor(NSD) and VNF Descriptor(VNFD) to
+    give the overall definition for the topology
+    * deploy the topology by OPEN-O 
+      * Several VMs are deployed to play different roles. A Clearwater vIMS is
+      consist of 7 VMs includes basic function nodes and a DNS.
 
-  4. Configure vIMS and set specific calling number for each OpenStack vendor
+  4. Configure vIMS and get specific calling number for each OpenStack vendor
+    * call vIMS API to generate identification for each OpenStack vendor
 
-  5. Show the audiences by dialing a specific number
+  5. Configure the SIP client with the calling identification
+    * call the SIP client API to configure
+
+  6. Show the audiences by dialing a specific number
 
 2. Test scripts to verify the deployment
-
+  * script to confirm OpenStack is working
+    * basic scenario to create VM along with network as API verification for 
+    the OpenStack
+  * script to confirm OPEN-O is working
+    * basic scenario to call OPEN-O services to confirm core services are working
+  * script to confirm vIMS is working
+    * basic scenario to call vIMS services to confirm main functions are working
 
 Dependencies
 ============
@@ -97,4 +121,4 @@ Dependencies
 - Does this feature require any new library dependencies or code otherwise not
   included in OpenStack? Or does it depend on a specific version of library?
 
-  OPEN-O, Clearwater vIMS
+  OPEN-O, Clearwater vIMS, SIP client
