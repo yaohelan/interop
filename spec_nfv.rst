@@ -20,12 +20,12 @@ which serves as VNF and MANO respectively) on an OpenStack infrastructure.
 Network Function Virtualization(NFV) is a network architecture concept that
 uses virtualization technology in Telco industry. Virtual Network Function
 (VNF) is a software implementation of network functions that can be deployed
-on a Network Virtualization Infrastructure(NFVI). Virtualized Infrastructure 
+on a Network Virtualization Infrastructure(NFVI). Virtualized Infrastructure
 Manager(VIM) is responsible for controlling and managing the NFVI resources.
 OpenStack is a VIM.
 
 Running a VNF on a NFVI with the help of VIM is a normal way to demonstrate
-the ability that OpenStack supports NFV. To fulfill the goal, a MANO is needed 
+the ability that OpenStack supports NFV. To fulfill the goal, a MANO is needed
 to manage the life-cycle of VNF and orchestrate the services.
 OPEN-O is an open source MANO project.
 https://www.open-o.org/
@@ -116,7 +116,8 @@ Details
     * deploy the topology by OPEN-O
 
       * several VMs are deployed to play different roles. A detailed architecture of
-      Clearwater vIMS can be referred here http://www.projectclearwater.org/technical/clearwater-architecture
+      Clearwater vIMS can be referred here
+      http://www.projectclearwater.org/technical/clearwater-architecture
 
       * refer to the prerequisite for the VM requirement
 
