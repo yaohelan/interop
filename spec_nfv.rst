@@ -116,7 +116,8 @@ Details
     * deploy the topology by OPEN-O
 
       * several VMs are deployed to play different roles. A detailed architecture of
-      Clearwater vIMS can be referred here http://www.projectclearwater.org/technical/clearwater-architecture/.
+      Clearwater vIMS can be referred here http://www.projectclearwater.org/technical/clearwater-architecture
+
       * refer to the prerequisite for the VM requirement
 
   4. Configure vIMS and get specific calling number for each OpenStack vendor
