@@ -136,6 +136,7 @@ Details
   * script to confirm OpenStack is working
 
     * basic scenario to call OpenStack API to confirm OpenStack is healthy
+    
       * Tempest Smoke test is an option
 
   * script to confirm OPEN-O is working
